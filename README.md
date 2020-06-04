@@ -8,23 +8,24 @@
 ### Association
 - has_many :groups, through: :users_groups
 - has_many :messages
+- has_many :users_groups
 
 ## groupsテーブル
 |Coumn|Type|Options|
 |-----|----|-------|
-|guroup_name|string|null: false|
-|chat_member|string||
+|name|string|null: false|
 ### Assosiation
-- belongs_to :user, through: :users_groups
+- has_many :user, through: :users_groups
 - has_many :messages
+- has_many :users_groups
 
 ## messagesテーブル
 |Coumn|Type|Options|
 |-----|----|-------|
 |body|text||
 |image|text||
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Assosiation
 - belongs_to :user
 - belongs_to :group
@@ -32,8 +33,8 @@
 ## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
