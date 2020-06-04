@@ -6,8 +6,8 @@
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :groups
-- has_many :messages, through: :users_groups
+- has_many :groups, through: :users_groups
+- has_many :messages
 
 ## groupsテーブル
 |Coumn|Type|Options|
@@ -15,8 +15,8 @@
 |guroup_name|string|null: false|
 |chat_member|string||
 ### Assosiation
-- belongs_to :user
-- has_many :messages, through: :users_groups
+- belongs_to :user, through: :users_groups
+- has_many :messages
 
 ## messagesテーブル
 |Coumn|Type|Options|
