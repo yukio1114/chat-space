@@ -1,0 +1,42 @@
+.Main-chat
+  .Main-chat__group-info
+    .Main-chat__group-info--group-block
+      .Main-chat__group-info--group-block--name
+        group name
+      .Main-chat__group-info--group-block--member
+        Member :
+    .Main-chat__group-info--edit-block
+      %a.Main-chat__group-info--edit-block--btn(href="#")Edit
+  .Main-chat__message-list
+    .Main-chat__message-list--chat-block
+      .Main-chat__message-list--chat-block--form
+        .Main-chat__message-list--chat-block--form--name
+          yukio
+        .Main-chat__message-list--chat-block--form--date
+          2020/6/10(Wed)10:15:51
+      .Main-chat__message-list--chat-block--message
+        おはよう！
+    .Main-chat__message-list--chat-block
+      .Main-chat__message-list--chat-block--form
+        .Main-chat__message-list--chat-block--form--name
+          yukio
+        .Main-chat__message-list--chat-block--form--date
+          2020/6/10(Wed)10:15:51
+      .Main-chat__message-list--chat-block--message
+        おはよう！
+    .Main-chat__message-list--chat-block
+      .Main-chat__message-list--chat-block--form
+        .Main-chat__message-list--chat-block--form--name
+          yukio
+        .Main-chat__message-list--chat-block--form--date
+          2020/6/10(Wed)10:15:51
+      .Main-chat__message-list--chat-block--message
+        おはよう！
+  .Main-chat__message-form
+    %form.new-message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          =icon('fas', 'image')
+          %input{type: "file", class: "input-box__image--file"}
+      %input{type: "submit", value: "Send", class: "submit-btn"}
