@@ -2,11 +2,11 @@
   .Side-bar__user-name
     .Side-bar__user-name--form
       .Side-bar__user-name--form--name
-        yukio
+        = current_user.name
       .Side-bar__user-name--form--icon
         = link_to "#" do
           = icon('far',"edit", class: "edit-btn")
-        = link_to "#" do
+        = link_to edit_user_path(current_user) do
           = icon('fas', "cog", class: "cog-btn")
   .Side-bar__group-list
     .Side-bar__group-list--message-box
