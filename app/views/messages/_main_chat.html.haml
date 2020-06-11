@@ -2,41 +2,31 @@
   .Main-chat__group-info
     .Main-chat__group-info--group-block
       .Main-chat__group-info--group-block--name
-        group name
-      .Main-chat__group-info--group-block--member
-        Member :
+        = @group.name
+        .Main-chat__group-info--group-block--member
+          Member : 
+          - @group.users.each do |user|
+            = user.name
     .Main-chat__group-info--edit-block
-      %a.Main-chat__group-info--edit-block--btn(href="#")Edit
+      = link_to 'Edit', edit_group_path(@group), class:"Main-chat__group-info--edit-block--btn"
   .Main-chat__message-list
+    
     .Main-chat__message-list--chat-block
+      = render @messages
       .Main-chat__message-list--chat-block--form
+        
         .Main-chat__message-list--chat-block--form--name
-          yukio
+          
         .Main-chat__message-list--chat-block--form--date
-          2020/6/10(Wed)10:15:51
+          
       .Main-chat__message-list--chat-block--message
-        おはよう！
-    .Main-chat__message-list--chat-block
-      .Main-chat__message-list--chat-block--form
-        .Main-chat__message-list--chat-block--form--name
-          yukio
-        .Main-chat__message-list--chat-block--form--date
-          2020/6/10(Wed)10:15:51
-      .Main-chat__message-list--chat-block--message
-        おはよう！
-    .Main-chat__message-list--chat-block
-      .Main-chat__message-list--chat-block--form
-        .Main-chat__message-list--chat-block--form--name
-          yukio
-        .Main-chat__message-list--chat-block--form--date
-          2020/6/10(Wed)10:15:51
-      .Main-chat__message-list--chat-block--message
-        おはよう！
+        
   .Main-chat__message-form
-    %form.new-message
+    = form_with model: [@group, @message], html: {class: "new.message"}, local: true do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          =icon('fas', 'image')
-          %input{type: "file", class: "input-box__image--file"}
-      %input{type: "submit", value: "Send", class: "submit-btn"}
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('far', 'image', class: 'input-box__image--icon')
+          = f.file_field :image, class: 'input-box__image--file'
+      = f.submit 'Send', class: 'submit-btn'
+
