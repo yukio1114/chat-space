@@ -9,20 +9,13 @@
             = user.name
     .Main-chat__group-info--edit-block
       = link_to 'Edit', edit_group_path(@group), class:"Main-chat__group-info--edit-block--btn"
+
+      
   .Main-chat__message-list
+    = render @messages
     
-    .Main-chat__message-list--chat-block
-      = render @messages
-      .Main-chat__message-list--chat-block--form
-        
-        .Main-chat__message-list--chat-block--form--name
-          
-        .Main-chat__message-list--chat-block--form--date
-          
-      .Main-chat__message-list--chat-block--message
-        
   .Main-chat__message-form
-    = form_with model: [@group, @message], html: {class: "new.message"}, local: true do |f|
+    = form_with model: [@group, @message], html: {class: "new_message"}, local: true do |f|
       .input-box
         = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
         = f.label :image, class: 'input-box__image' do

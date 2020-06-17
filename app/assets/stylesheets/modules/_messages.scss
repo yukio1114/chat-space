@@ -109,6 +109,7 @@
         &--name{
           color: #333333;
           font-size: 16px;
+          font-weight: bold;
         }
         &--date{
           color: #999999;
@@ -116,9 +117,11 @@
         }
       }
       &--message{
-        color: #434A54;
-        font-size: 14px;
         margin-top: 12px;
+        &--content{
+          color: #434A54;
+          font-size: 14px;
+        }
       }
     }
   }
