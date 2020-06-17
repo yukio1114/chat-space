@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="Main-chat__message-list--chat-block">
+        `<div class="Main-chat__message-list--chat-block" data-message-id=${message.id}>
           <div class="Main-chat__message-list--chat-block--form">
             <div class="Main-chat__message-list--chat-block--form--name">
               ${message.user_name}
@@ -21,7 +21,7 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="Main-chat__message-list--chat-block">
+      `<div class="Main-chat__message-list--chat-block" data-message-id=${message.id}>
         <div class="Main-chat__message-list--chat-block--form">
           <div class="Main-chat__message-list--chat-block--form--name">
             ${message.user_name}
@@ -44,7 +44,6 @@ $(function(){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    $('.submit-btn').removeAttr('data-disable-with');
     $.ajax({
       url: url,
       type: "POST",
@@ -61,6 +60,7 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.submit-btn').removeAttr('data-disable-with');
     });
   });
 });
